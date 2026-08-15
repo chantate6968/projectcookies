@@ -1,0 +1,16 @@
+---
+description: Frontend conventions for cookie store UI code
+globs: "**/*.{ts,tsx,js,jsx,css,scss}"
+alwaysApply: false
+---
+
+# Frontend Standards
+
+- Build responsive UI from mobile upward.
+- Keep components focused on one purpose; extract shared UI only when reuse is real.
+- Use semantic elements for navigation, product lists, forms, buttons, prices, and status messages.
+- Avoid placeholder marketing copy in committed user-facing screens unless the feature is explicitly a mockup.
+- Handle loading, empty, success, and error states for catalog, cart, checkout, and order flows.
+- Keep promotion logic separate from presentation so discounts can be tested.
+- Prefer explicit product, cart, promotion, and order types over loosely shaped objects.
+- Use CSS or the selected design system consistently once the stack is chosen.

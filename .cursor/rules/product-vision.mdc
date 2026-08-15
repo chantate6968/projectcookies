@@ -1,0 +1,17 @@
+---
+description: Product direction for the cookie ecommerce website
+alwaysApply: true
+---
+
+# Cookie Store Product Direction
+
+This project is a customer-facing website for selling cookies online.
+
+Prioritize these product outcomes:
+
+- Make the cookies feel desirable through strong visuals, clear flavors, ingredients, packaging, and gifting use cases.
+- Include marketing content: hero messaging, promotions, seasonal offers, trust signals, reviews, FAQs, and calls to action.
+- Treat product detail pages as sales pages: cookie descriptions, variants, pricing, allergy notes, freshness, delivery, and storage guidance should be easy to find.
+- Treat checkout and transactions as conversion-critical: cart clarity, totals, promo codes, shipping, payment states, order confirmation, and error recovery matter.
+- Design for mobile first, then scale up to desktop.
+- Keep tone warm, appetizing, trustworthy, and premium without sounding generic.

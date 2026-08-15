@@ -1,0 +1,15 @@
+---
+description: Agent workflow and subagent usage for this project
+alwaysApply: true
+---
+
+# Agent Workflow
+
+- Before implementing, inspect the repo state and identify the current stack.
+- Use `.cursor/skills/cookie-store-planning` for product planning, feature breakdowns, page architecture, and ecommerce scope decisions.
+- Use `.cursor/skills/ecommerce-qa` when reviewing or testing product pages, promotions, cart, checkout, or order flows.
+- For broad codebase discovery, use an `explore` subagent and ask for concise findings with relevant file paths.
+- For browser-based UI validation, use a `browser-use` subagent or browser tools after a local app is running.
+- For CI failures on future pull requests, use a `ci-investigator` subagent on one failed check at a time.
+- Do not invent custom subagent configuration files unless Cursor supports them in this project; document intended subagent usage in rules instead.
+- Keep future setup changes scoped and explain trade-offs before major framework or payment-provider choices.

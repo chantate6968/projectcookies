@@ -1,0 +1,16 @@
+---
+description: Core engineering standards for the project
+alwaysApply: true
+---
+
+# Engineering Standards
+
+- Read the existing project shape before adding tools, frameworks, or conventions.
+- Prefer TypeScript for application code unless the user chooses a different stack.
+- Keep implementation choices boring and maintainable: small components, clear data models, and minimal dependencies.
+- Do not put secrets, API keys, payment credentials, or production tokens in source files.
+- Model money carefully: store prices in integer minor units where possible and display formatted currency at the edge.
+- Validate transactional inputs on the server side when a backend exists.
+- Add focused tests for cart math, promotions, checkout state, and any shared business logic.
+- Preserve accessibility: semantic HTML, keyboard navigation, visible focus, labels, contrast, and useful alt text.
+- Run the smallest meaningful verification after substantive changes and report anything not run.

@@ -1,0 +1,626 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff8f4;
+  --foreground: #3f2115;
+  --shop-text: #5d3a3a;
+  --shop-muted: #6d5a4c;
+  --shop-border: #e8ddd2;
+  --logo-plate: #8f5738;
+  --logo-cream: #f4ead8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    Nunito, "Segoe UI", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #eadfce;
+  color: var(--shop-text);
+}
+
+.shop-page {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--shop-text);
+}
+
+.announcement-bar {
+  background: #c45c4a;
+  color: #fff;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--shop-border);
+  background: rgb(255 248 244 / 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.site-header-inner {
+  margin: 0 auto;
+  display: flex;
+  max-width: 72rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--shop-text);
+}
+
+@media (max-width: 480px) {
+  .site-header-inner {
+    padding: 0.7rem 1rem;
+  }
+
+  .site-nav {
+    gap: 0.65rem;
+    font-size: 0.78rem;
+  }
+}
+
+.site-nav a {
+  color: inherit;
+}
+
+.site-nav a:hover {
+  opacity: 0.72;
+}
+
+.site-nav-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.site-nav-cart-count {
+  display: inline-grid;
+  min-width: 1.25rem;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--shop-text);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.68rem;
+  color: #fff;
+}
+
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner-media {
+  position: relative;
+  aspect-ratio: 16 / 7;
+  min-height: 220px;
+  background: #d9cfc4;
+}
+
+@media (min-width: 768px) {
+  .hero-banner-media {
+    aspect-ratio: 21 / 8;
+    min-height: 320px;
+  }
+}
+
+.hero-banner-fallback {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #8f5738, #c9905a);
+}
+
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0.18),
+    rgb(0 0 0 / 0.42)
+  );
+}
+
+.hero-banner-content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.hero-banner-content h1 {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(2rem, 6vw, 3.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.hero-banner-cta {
+  justify-self: center;
+  border: 1px solid rgb(255 255 255 / 0.8);
+  padding: 0.7rem 1.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.hero-banner-cta:hover {
+  background: rgb(255 255 255 / 0.12);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-image {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f3ebe3;
+}
+
+.product-card-image > div {
+  height: 100%;
+  width: 100%;
+}
+
+.product-card-body {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.product-card-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--shop-text);
+}
+
+.product-card-title:hover {
+  opacity: 0.75;
+}
+
+.product-card-price {
+  margin: 0.45rem 0 0.85rem;
+  font-size: 0.95rem;
+  color: var(--shop-muted);
+}
+
+.product-card-add {
+  width: 100%;
+  border: 1px solid var(--shop-text);
+  background: transparent;
+  padding: 0.72rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--shop-text);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.product-card-add:hover {
+  background: var(--shop-text);
+  color: #fff;
+}
+
+.restocks-section {
+  border-top: 1px solid var(--shop-border);
+  padding: 4rem 1.5rem;
+}
+
+.restocks-inner {
+  margin: 0 auto;
+  max-width: 42rem;
+}
+
+.restocks-inner h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--shop-text);
+}
+
+.restocks-inner p {
+  margin: 1rem 0 0;
+  line-height: 1.8;
+  color: var(--shop-muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--shop-border);
+  background: #fff8f4;
+  padding: 2rem 1.5rem 2.5rem;
+}
+
+.site-footer-inner {
+  margin: 0 auto;
+  display: flex;
+  max-width: 72rem;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: var(--shop-muted);
+}
+
+.site-footer-inner nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer-inner a {
+  color: var(--shop-text);
+}
+
+.site-footer-inner a:hover {
+  opacity: 0.72;
+}
+
+.brand-logo-compact .brand-logo-plate {
+  padding: 0.38em 0.72em 0.48em;
+  border-radius: 0.85rem;
+}
+
+.brand-logo-compact .brand-logo-word {
+  font-size: 1.15rem;
+}
+
+.brand-logo-compact .brand-logo-subtitle {
+  font-size: 0.48rem;
+}
+
+.brand-logo {
+  display: inline-flex;
+  width: fit-content;
+  line-height: 0.9;
+  overflow: visible;
+}
+
+.brand-logo-plate {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1.05em 0.62em;
+  border-radius: 1.15rem;
+  background: var(--logo-plate);
+}
+
+.brand-logo-word {
+  display: inline-flex;
+  align-items: center;
+  overflow: visible;
+  padding-top: 0.12em;
+  font-family:
+    "Arial Rounded MT Bold", Nunito, "Trebuchet MS", ui-rounded, ui-sans-serif,
+    system-ui, sans-serif;
+  font-size: clamp(1.45rem, 3.6vw, 2.85rem);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  color: var(--logo-cream);
+}
+
+.brand-logo-cookie-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.05em;
+  height: 1.05em;
+  margin: 0 0.01em;
+  transform: translateY(0.04em);
+  filter: drop-shadow(0 0.08em 0.1em rgb(63 33 21 / 0.28));
+}
+
+.brand-logo-cookie-u {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.brand-logo-compact .brand-logo-cookie-letter {
+  width: 1em;
+  height: 1em;
+}
+
+.brand-logo-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38em;
+  margin-top: 0.14rem;
+  font-size: clamp(0.58rem, 1.2vw, 0.74rem);
+  font-weight: 400;
+  text-transform: lowercase;
+  color: var(--logo-cream);
+}
+
+.brand-logo-subtitle-text {
+  letter-spacing: 0.56em;
+  padding-right: 0;
+}
+
+.brand-logo-image-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo-image-wrap-compact .brand-logo-image {
+  max-height: 2.6rem;
+}
+
+.brand-logo-image {
+  display: block;
+  width: auto;
+  max-width: min(100%, 12rem);
+  max-height: 3.4rem;
+  object-fit: contain;
+}
+
+.brand-logo-image-large {
+  max-width: min(100%, 22rem);
+  max-height: 8rem;
+}
+
+.logo-workshop-intro {
+  max-width: 46rem;
+}
+
+.logo-workshop-eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5d3a3a;
+}
+
+.logo-workshop-intro h1 {
+  margin: 0.75rem 0 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
+.logo-workshop-lead,
+.logo-workshop-copy,
+.logo-workshop-note {
+  color: #6d5a4c;
+  line-height: 1.7;
+}
+
+.logo-workshop-lead {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+}
+
+.logo-workshop-downloads {
+  margin-top: 0;
+}
+
+.logo-workshop-download-preview {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  background: #fff8f4;
+}
+
+.logo-workshop-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.logo-workshop-panel-wide {
+  grid-column: 1 / -1;
+}
+
+.logo-workshop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.logo-workshop-list {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: #6d5a4c;
+  line-height: 1.7;
+}
+
+.logo-workshop-list-tight {
+  margin-top: 1.25rem;
+}
+
+.logo-workshop-swatches {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.logo-workshop-swatch {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: #6d5a4c;
+}
+
+.logo-workshop-swatch-chip {
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgb(0 0 0 / 0.08);
+}
+
+.logo-workshop-upload {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px dashed #d9cfc4;
+  background: #fff;
+}
+
+.logo-workshop-upload span {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #5d3a3a;
+}
+
+.logo-workshop-error {
+  margin: 0.75rem 0 0;
+  color: #c45c4a;
+  font-size: 0.92rem;
+}
+
+.logo-workshop-preview-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.logo-workshop-preview-card {
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e8ddd2;
+}
+
+.logo-workshop-preview-label {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5d3a3a;
+}
+
+.logo-workshop-header-mock,
+.logo-workshop-large-mock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 4.5rem;
+  padding: 1rem;
+  background: #fff8f4;
+  border: 1px solid #e8ddd2;
+}
+
+.logo-workshop-large-mock {
+  min-height: 9rem;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .logo-workshop-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logo-workshop-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.brand-display {
+  font-weight: 700;
+  color: var(--shop-text);
+}
+
+a {
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid #c45c4a;
+  outline-offset: 3px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page-shell {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--shop-text);
+}
+
+.page-content {
+  margin: 0 auto;
+  max-width: 72rem;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.detail-panel {
+  border: 1px solid var(--shop-border);
+  background: #fff;
+  padding: 1.25rem;
+}
+
+.detail-add {
+  width: 100%;
+  border: 1px solid var(--shop-text);
+  background: var(--shop-text);
+  padding: 0.85rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.detail-add:hover {
+  background: #4a2f2f;
+}
